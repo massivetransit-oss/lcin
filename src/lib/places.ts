@@ -8,12 +8,13 @@ export type Place = {
   lat: number
   lng: number
   order_index: number
+  logo_url: string | null
 }
 
 export async function fetchPlaces(): Promise<Place[]> {
   const { data, error } = await supabase
     .from('places')
-    .select('id, name, description, address, lat, lng, order_index')
+    .select('id, name, description, address, lat, lng, order_index, logo_url')
     .order('order_index', { ascending: true })
 
   if (error) throw new Error(error.message)
@@ -23,7 +24,7 @@ export async function fetchPlaces(): Promise<Place[]> {
 export async function fetchPlaceById(id: string): Promise<Place> {
   const { data, error } = await supabase
     .from('places')
-    .select('id, name, description, address, lat, lng, order_index')
+    .select('id, name, description, address, lat, lng, order_index, logo_url')
     .eq('id', id)
     .single()
 

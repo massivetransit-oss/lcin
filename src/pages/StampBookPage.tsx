@@ -5,6 +5,7 @@ import type { Place } from '../lib/places'
 import { fetchVisitedPlaceIds } from '../lib/visits'
 import { useAuth } from '../context/AuthContext'
 import { NavBar } from '../components/NavBar'
+import { PLACEHOLDER_LOGO_URL } from '../lib/placeholderLogo'
 
 export function StampBookPage() {
   const { session } = useAuth()
@@ -47,6 +48,13 @@ export function StampBookPage() {
         {places.map((place) => (
           <li key={place.id}>
             <Link to={`/places/${place.id}`}>
+              <img
+                src={place.logo_url ?? PLACEHOLDER_LOGO_URL}
+                alt=""
+                width={24}
+                height={24}
+                style={{ verticalAlign: 'middle', marginRight: 6, borderRadius: '50%' }}
+              />
               {place.name} {visitedIds.has(place.id) ? '✅' : '⬜'}
             </Link>
           </li>
