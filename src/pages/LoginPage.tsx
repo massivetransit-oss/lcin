@@ -27,7 +27,7 @@ export function LoginPage() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>부평바로알기</h1>
+      <h1>초등학교정복자</h1>
       <label>
         이름
         <input value={name} onChange={(e) => setName(e.target.value)} required />

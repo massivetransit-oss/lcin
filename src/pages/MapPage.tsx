@@ -65,7 +65,7 @@ export function MapPage() {
   return (
     <div>
       <NavBar />
-      <h1>부평바로알기</h1>
+      <h1>초등학교정복자</h1>
       {error && <p role="alert">{error}</p>}
       <div ref={mapRef} style={{ width: '100%', height: '70vh' }} />
     </div>
