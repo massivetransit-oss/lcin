@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from './pages/LoginPage'
 import { MapPage } from './pages/MapPage'
 import { PlaceDetailPage } from './pages/PlaceDetailPage'
+import { StampBookPage } from './pages/StampBookPage'
 import { RequireAuth } from './routes/RequireAuth'
 
 function App() {
@@ -21,6 +22,14 @@ function App() {
         element={
           <RequireAuth>
             <PlaceDetailPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/stampbook"
+        element={
+          <RequireAuth>
+            <StampBookPage />
           </RequireAuth>
         }
       />
