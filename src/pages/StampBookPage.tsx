@@ -4,6 +4,7 @@ import { fetchPlaces } from '../lib/places'
 import type { Place } from '../lib/places'
 import { fetchVisitedPlaceIds } from '../lib/visits'
 import { useAuth } from '../context/AuthContext'
+import { NavBar } from '../components/NavBar'
 
 export function StampBookPage() {
   const { session } = useAuth()
@@ -28,6 +29,7 @@ export function StampBookPage() {
   if (allCollected) {
     return (
       <div>
+        <NavBar />
         <h1>모든 스탬프를 모았습니다!</h1>
         <Link to="/">지도로 돌아가기</Link>
       </div>
@@ -36,6 +38,7 @@ export function StampBookPage() {
 
   return (
     <div>
+      <NavBar />
       <h1>스탬프북</h1>
       <p>
         {visitedIds.size} / {places.length} 수집

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { NavBar } from '../components/NavBar'
 import { loadKakaoMapsSdk } from '../lib/kakaoMap'
 import { fetchPlaces } from '../lib/places'
 import { fetchVisitedPlaceIds } from '../lib/visits'
@@ -63,6 +64,7 @@ export function MapPage() {
 
   return (
     <div>
+      <NavBar />
       <h1>부평바로알기</h1>
       {error && <p role="alert">{error}</p>}
       <div ref={mapRef} style={{ width: '100%', height: '70vh' }} />

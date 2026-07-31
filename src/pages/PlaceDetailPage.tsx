@@ -7,6 +7,7 @@ import { createVisit, fetchVisitsByPlace } from '../lib/visits'
 import type { Visit } from '../lib/visits'
 import { distanceMeters, getCurrentPosition, VISIT_RADIUS_METERS } from '../lib/geolocation'
 import { useAuth } from '../context/AuthContext'
+import { NavBar } from '../components/NavBar'
 
 export function PlaceDetailPage() {
   const { id } = useParams<{ id: string }>()
@@ -80,6 +81,7 @@ export function PlaceDetailPage() {
 
   return (
     <div>
+      <NavBar />
       <h1>{place.name}</h1>
       <p>{place.description}</p>
       <p>{place.address}</p>
