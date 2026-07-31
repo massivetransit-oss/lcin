@@ -1,17 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from './pages/LoginPage'
+import { MapPage } from './pages/MapPage'
+import { PlaceDetailPage } from './pages/PlaceDetailPage'
 import { RequireAuth } from './routes/RequireAuth'
-import { useAuth } from './context/AuthContext'
-
-function HomePlaceholder() {
-  const { session, logout } = useAuth()
-  return (
-    <div>
-      <p>환영합니다, {session?.name}님</p>
-      <button onClick={logout}>로그아웃</button>
-    </div>
-  )
-}
 
 function App() {
   return (
@@ -21,7 +12,15 @@ function App() {
         path="/"
         element={
           <RequireAuth>
-            <HomePlaceholder />
+            <MapPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/places/:id"
+        element={
+          <RequireAuth>
+            <PlaceDetailPage />
           </RequireAuth>
         }
       />
